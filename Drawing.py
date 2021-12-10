@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
+import drawfile
 
 
 class MyPaintWidget(Widget):
@@ -69,6 +70,7 @@ class MyPaintApp(App):
 
     def send_out(self,obj):
         print('hello')
+        drawfile.plot_file()
         # need to work logic here
 
 if __name__ == '__main__':
