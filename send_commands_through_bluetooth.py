@@ -34,10 +34,10 @@ def parse_string_list(string):
 
     return listOfElements
 
-
-f = open("coordinates.txt", "r")
-coordinates = parse_string_list(f.read())
-
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(send_coordinates(address,coordinates))
+#
+# f = open("coordinates.txt", "r")
+# coordinates = parse_string_list(f.read())
+#
+#
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(send_coordinates(address,coordinates))

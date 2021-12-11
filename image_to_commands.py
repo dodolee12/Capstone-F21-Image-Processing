@@ -54,15 +54,19 @@ coordinate_order = []
 
 #determine coordinate order
 index = 0
+curx = 0
+cury = 0
 while index < num_filtered_points:
     #starting points are at nodes with one edge
     if len(graph_adjacency_list[index]) != 1:
         index += 1
         continue
-    #add the two points
+    #add the two points (When transitioning between lift pens, I want to move x and y directions separately
 
     while True:
-        coordinate_order.append((pixel_coords[index][0],abs(pixel_coords[index][1])))
+        curx = pixel_coords[index][0]
+        cury = abs(pixel_coords[index][1])
+        coordinate_order.append((curx, cury))
         if len(graph_adjacency_list[index]) == 0:
             coordinate_order.append("Lift Pen")
             index = 0
@@ -91,7 +95,7 @@ plt.ion()
 
 for i in range(len(x_coords)):
     plt.plot(x_coords[i], y_coords[i], "k-")
-    plt.pause(0.005)
+    plt.pause(0.5)
 
 f = open("coordinates.txt", "w")
 f.write(str(coordinate_order))

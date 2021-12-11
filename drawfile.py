@@ -10,7 +10,7 @@ def plot_file():
             result.append(tmp_result)
             tmp_result=[]
             continue
-        a= i.strip().split(',')
+        a= i.strip("()\n").split(',')
         a[0] = int(a[0])
         a[1] = int(a[1])
         tmp_result.append(a)

@@ -3,6 +3,8 @@ from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 import drawfile
+from send_commands_through_bluetooth import send_coordinates, address
+import asyncio
 
 
 class MyPaintWidget(Widget):
@@ -20,12 +22,12 @@ class MyPaintWidget(Widget):
             self.down_y = touch.y
             f = open('out.log', 'a')
             f.write("pen down\n")
-            f.write("{}, {} \n".format(round(touch.x), round(touch.y)))
+            f.write("({},{})\n".format(round(touch.x), round(touch.y)))
 
     def on_touch_move(self, touch):
         touch.ud['line'].points += [touch.x, touch.y]
         f = open('out.log', 'a')
-        f.write("{}, {} \n".format(round(touch.x), round(touch.y)))
+        f.write("({},{})\n".format(round(touch.x), round(touch.y)))
         print(touch.x, touch.y)
 
     def on_touch_up(self, touch):
@@ -39,7 +41,7 @@ class MyPaintWidget(Widget):
             Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
             f = open('out.log', 'a')
             f.write("pen up\n")
-            f.write("{}, {} \n".format(round(touch.x), round(touch.y)))
+            f.write("({},{})\n".format(round(touch.x), round(touch.y)))
             print(touch.x, touch.y)
 
 class MyPaintApp(App):
@@ -60,6 +62,8 @@ class MyPaintApp(App):
         parent.add_widget(clearbtn)
         parent.add_widget(sendbtn)
 
+        self.clear_canvas("obj")
+
         return parent
 
     def clear_canvas(self, obj):
@@ -70,8 +74,22 @@ class MyPaintApp(App):
 
     def send_out(self,obj):
         print('hello')
-        drawfile.plot_file()
+        #drawfile.plot_file()
         # need to work logic here
+        f = open('out.log', 'r')
+        commands = ["Start"]
+        for i in f.readlines():
+            if i.strip() == 'pen down' or i.strip() == 'pen up':
+                commands.append("Lift Pen")
+                continue
+            a = i.strip("\n")
+            commands.append(a)
+        commands.append("Finish")
+        print(commands)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(send_coordinates(address, commands))
+        f.close()
+        self.clear_canvas("obj")
 
 if __name__ == '__main__':
     MyPaintApp().run()
