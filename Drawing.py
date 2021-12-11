@@ -83,8 +83,10 @@ class MyPaintApp(App):
             if i.strip() == 'pen down' or i.strip() == 'pen up':
                 commands.append("Lift Pen")
                 continue
-            a = i.strip("\n")
-            commands.append(a)
+            a = i.strip("\n()").split(",")
+            x = int(a[0])
+            y = int(a[1])
+            commands.append(str((5*x,5*y)))
         commands.append("Finish")
         print(commands)
         loop = asyncio.get_event_loop()

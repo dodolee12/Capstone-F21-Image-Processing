@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b19af32-48d5-47ce-b5d1-43c111efbfed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drawing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bluetooth_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/bluetooth_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drawfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_to_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_to_commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/send_commands_through_bluetooth.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_commands_through_bluetooth.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bluetooth_test (1)">
+  <component name="RunManager" selected="Python.Drawing">
     <configuration name="Drawing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Capstone" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,8 +159,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bluetooth_test (1)" />
         <item itemvalue="Python.Drawing" />
+        <item itemvalue="Python.bluetooth_test (1)" />
         <item itemvalue="Python.drawfile" />
         <item itemvalue="Python.send_commands_through_bluetooth" />
         <item itemvalue="Python.image_to_commands" />
