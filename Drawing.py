@@ -5,7 +5,8 @@ from kivy.graphics import Color, Ellipse, Line
 import drawfile
 from send_commands_through_bluetooth import send_coordinates, address
 import asyncio
-
+from kivy.core.window import Window
+Window.size = (580, 700)
 
 class MyPaintWidget(Widget):
     def __init__(self):
@@ -92,4 +93,7 @@ class MyPaintApp(App):
         self.clear_canvas("obj")
 
 if __name__ == '__main__':
+    out_log = open("out.log", "w")
+    out_log.truncate()
+    out_log.close()
     MyPaintApp().run()
