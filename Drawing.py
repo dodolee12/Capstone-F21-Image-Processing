@@ -6,7 +6,7 @@ import drawfile
 from send_commands_through_bluetooth import send_coordinates, address
 import asyncio
 from kivy.core.window import Window
-Window.size = (580, 700)
+Window.size = (500, 600)
 
 class MyPaintWidget(Widget):
     def __init__(self):
@@ -86,7 +86,7 @@ class MyPaintApp(App):
             a = i.strip("\n()").split(",")
             x = int(a[0])
             y = int(a[1])
-            commands.append(str((5*x,5*y)))
+            commands.append(str((3*x,3*y)))
         commands.append("Finish")
         print(commands)
         loop = asyncio.get_event_loop()

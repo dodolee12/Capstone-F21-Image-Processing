@@ -7,7 +7,7 @@ address = "A0:E6:F8:BD:DA:81"
 MODEL_NBR_UUID = "00002a24-0000-1000-8000-00805f9b34fb"
 DATA_STRING_STORAGE_UUID = "F0001131-0451-4000-B000-000000000000"
 string = "Finish"
-coords = ["Start","(500,500)", "Finish"]#"(2900,3441)"]
+coords = ["Start","(500,500)", "Finish"]
 
 async def send_coordinates(address,coords):
     client = bleak.BleakClient(address)
