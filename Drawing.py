@@ -3,7 +3,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 import drawfile
-from send_commands_through_bluetooth import send_coordinates, address
+from bluetooth_helper import send_coordinates, address
 import asyncio
 from kivy.core.window import Window
 Window.size = (500, 600)
