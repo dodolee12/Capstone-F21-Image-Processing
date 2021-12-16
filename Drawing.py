@@ -7,11 +7,13 @@ import drawfile
 from bluetooth_helper import send_coordinates, address
 import asyncio
 from kivy.core.window import Window
+from kivy.uix.image import Image
+
 Window.size = (500, 700)
 Window.clearcolor = (1, 1, 1, 1)
 
 class MyPaintWidget(Widget):
-    def __init__(self):
+    def __init__(self, **kwarg):
 
         self.down_x = 0
         self.down_y = 0
@@ -67,12 +69,12 @@ class MyPaintApp(App):
         title = Label(text='[b]Triple Tangent \n Project 2022[/b]', markup=True, font_size=30, color=(0,0,0), pos=(100,600))
         logo = Label(text='[b]UNIVERSITY OF VIRGINIA[/b]', markup=True, font_size=30, color=(0,0,0), pos=(200,0))
 
-
+        a = Image(source='img.png', pos=(0,0), size=(500,200))
         parent.add_widget(self.painter)
         parent.add_widget(clearbtn)
         parent.add_widget(sendbtn)
         parent.add_widget(title)
-        parent.add_widget(logo)
+        parent.add_widget(a)
 
         self.clear_canvas("obj")
 
