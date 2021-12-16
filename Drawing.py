@@ -29,7 +29,7 @@ class MyPaintWidget(Widget):
             f.write("({},{})\n".format(round(touch.x), round(touch.y)))
 
     def on_touch_move(self, touch):
-        if (touch.x < 0 or touch.x > 500 or touch.y < 0 or touch.y > 600): return
+        if (touch.x < 200 or touch.x > 500 or touch.y < 200 or touch.y > 600): return
         touch.ud['line'].points += [touch.x, touch.y]
         f = open('out.log', 'a')
         f.write("({},{})\n".format(round(touch.x), round(touch.y)))
@@ -64,14 +64,15 @@ class MyPaintApp(App):
         sendbtn = Button(text='Sendout', pos = (400, 600))
         sendbtn.bind(on_release=self.send_out)
 
-        l = Label(text='[b]Triple Tangent \n Project 2022[/b]', markup=True, font_size=30, color=(0,0,0), pos=(100,600))
+        title = Label(text='[b]Triple Tangent \n Project 2022[/b]', markup=True, font_size=30, color=(0,0,0), pos=(100,600))
+        logo = Label(text='[b]UNIVERSITY OF VIRGINIA[/b]', markup=True, font_size=30, color=(0,0,0), pos=(200,0))
 
 
         parent.add_widget(self.painter)
         parent.add_widget(clearbtn)
         parent.add_widget(sendbtn)
-        parent.add_widget(l)
-
+        parent.add_widget(title)
+        parent.add_widget(logo)
 
         self.clear_canvas("obj")
 
